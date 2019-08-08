@@ -20,6 +20,9 @@ const Movie = (props) => {
 
   },[props.id]);
 
+  console.log("This is the movie information ", movie)
+  console.log("This is the movie information ", movie.stars)
+
   
   
   // Uncomment this only when you have moved on to the stretch goals
@@ -44,12 +47,16 @@ const Movie = (props) => {
           Metascore: <strong>{metascore}</strong>
         </div>
         <h3>Actors</h3>
-
-        {/* {stars.map(star => (
-          <div key={star} className="movie-star">
+        {/* {stars.map((star, index) => {
+          return (
+          <div className="movie-star" key={index}>
             {star}
           </div>
-        ))} */}
+          )
+        })} */}
+        {/* // TODO this provided .map() is not working. */}
+        <p>{stars}</p> 
+
       </div>
       <div className="save-button">Save</div>
     </div>
