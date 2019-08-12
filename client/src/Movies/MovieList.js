@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // Local Imports
 
 
+
 const MovieList = props => {
   const [movies, setMovies] = useState([])
   useEffect(() => {

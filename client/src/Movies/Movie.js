@@ -1,8 +1,11 @@
+// React Imports
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Local Imports
+
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
  
   useEffect(() => {
     const id = props.match.params.id;
@@ -20,16 +23,14 @@ const Movie = (props) => {
 
   },[props.id]);
 
-  console.log("This is the movie information ", movie)
-  console.log("This is the movie information ", movie.stars)
-
-  
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie)
+  }
+
+  
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -47,18 +48,15 @@ const Movie = (props) => {
           Metascore: <strong>{metascore}</strong>
         </div>
         <h3>Actors</h3>
-        {/* {stars.map((star, index) => {
+        {stars.map((star, index) => {
           return (
           <div className="movie-star" key={index}>
             {star}
           </div>
           )
-        })} */}
-        {/* // TODO this provided .map() is not working. */}
-        <p>{stars}</p> 
-
+        })}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={() => saveMovie(movie)}>Save</div>
     </div>
   );
 }
